@@ -1,0 +1,11 @@
+{
+    "name": "Portfolio App",
+    "icons": [
+        {
+            "src": "\/favicon.ico",
+            "size": "48x48",
+            "type": "image\/ico",
+            "density": "1.0"
+        }
+    ]
+}
