@@ -1,7 +1,4 @@
-var analyticsId;
-
-/** 
-
+let analyticsId;
 // If analytics id has been manually defined
 if (analyticsId) {
     // Initialize GA with local var
@@ -13,7 +10,6 @@ if (analyticsId) {
         .then(initGoogleAnalytics)
         .catch(handleError);
 }
-**/
 
 // -------------------------------------------------
 // Helper Functions
@@ -38,18 +34,20 @@ function getEnvVar(response) {
 function initGoogleAnalytics(analyticsId) {
     if (analyticsId) {
         // Inject the Google Analytics Tag Manager script into the DOM
-        analyticsUrl =
-            "https://www.googletagmanager.com/gtag/js?id=UA-" + analyticsId;
-        var ref = document.getElementsByTagName("script")[0];
-        var script = document.createElement("script");
+        let analyticsUrl = "https://www.googletagmanager.com/gtag/js?id=UA-" + analyticsId;
+        let ref = document.getElementsByTagName("script")[0];
+        let script = document.createElement("script");
+
         script.src = analyticsUrl;
         ref.parentNode.insertBefore(script, ref);
 
         // Initialize Google Analytics
         window.dataLayer = window.dataLayer || [];
+
         function gtag() {
             dataLayer.push(arguments);
         }
+
         gtag("js", new Date());
         gtag("config", "UA-" + analyticsId);
     }
